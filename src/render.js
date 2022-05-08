@@ -193,12 +193,18 @@ function init(file) {
             var division_y = Math.floor(y / 10);
 
             // AN ALTERNATIVE FOR MOVING THE OBJECT USING THE MOUSE WITHIN THE RENDERER
-            // controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls = new THREE.OrbitControls(camera);
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            // controls = new THREE.OrbitControls(camera);
+            function animateSpin(){
+                controls.update();
+                requestAnimationFrame ( animateSpin );  
+                renderer.render (scene, camera);
+            }
             controls.update();
-
+            console.log(controls);
             scene.add(mesh);
-
+            controls.autoRotate = true;
+            animateSpin();
             // HIDDING THE LOADING SPLASH
             document.getElementById("loading").style.display = "none";
         }
