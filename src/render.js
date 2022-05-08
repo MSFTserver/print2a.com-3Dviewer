@@ -1,16 +1,6 @@
 "use strict";
-// THE BROWSER LANGUAGE VARIABLE
-var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
-var STRING_ERROR = "";
-
-if (userLanguage.substring(0, 2) == "es") {
-    STRING_ERROR = "ERROR: Por favor verifique que el modelo se encuentre en formato STL, OBJ o 3DS.";
-}
-else {
-    STRING_ERROR = "ERROR: Please check that the model is a STL, OBJ or 3DS model.";
-}
-
+var STRING_ERROR = "ERROR: Please check that the model is a STL, OBJ or 3DS model.";
 var container, camera, scene, renderer, controls, light, vol, mesh, height, heightFinal, width, widthFinal, depth, depthFinal;
 
 var density = parseFloat("1.05");
@@ -18,34 +8,18 @@ var filament_cost = parseFloat("20");
 var filament_diameter = parseFloat("1.75");
 var printing_speed = parseFloat("150");
 
-if (userLanguage.substring(0, 2) == "es") {
-    document.getElementById("densityLabel").innerHTML = "Densidad";
-    document.getElementById("weightLabel").innerHTML = "Peso";
-    document.getElementById("volumeLabel").innerHTML = "Volumen";
-    document.getElementById("sizeLabel").innerHTML = "Medidas";
-    document.getElementById("costKilogramLabel").innerHTML = "Costo de 1 kilogramo de filamento";
-    document.getElementById("costLabel").innerHTML = "Costo de impresi&oacute;n";
-    document.getElementById("diameterLabel").innerHTML = "Di&aacute;metro del filamento";
-    document.getElementById("speedLabel").innerHTML = "Velocidad de impresi&oacute;n";
-    document.getElementById("lengthLabel").innerHTML = "Longitud de filamento";
-    document.getElementById("timeLabel").innerHTML = "Tiempo de impresi&oacute;n";
-    document.getElementById("hoursLabel").innerHTML = "horas";
-    document.getElementById("minutesLabel").innerHTML = "minutos";
-}
-else {
-    document.getElementById("densityLabel").innerHTML = "Density";
-    document.getElementById("weightLabel").innerHTML = "Weight";
-    document.getElementById("volumeLabel").innerHTML = "Volume";
-    document.getElementById("sizeLabel").innerHTML = "Size";
-    document.getElementById("costKilogramLabel").innerHTML = "Filament cost per kilogram";
-    document.getElementById("costLabel").innerHTML = "Printing cost";
-    document.getElementById("diameterLabel").innerHTML = "Filament diameter";
-    document.getElementById("speedLabel").innerHTML = "Printing speed";
-    document.getElementById("lengthLabel").innerHTML = "Filament length";
-    document.getElementById("timeLabel").innerHTML = "Build time";
-    document.getElementById("hoursLabel").innerHTML = "hours";
-    document.getElementById("minutesLabel").innerHTML = "minutes";
-}
+document.getElementById("densityLabel").innerHTML = "Density";
+document.getElementById("weightLabel").innerHTML = "Weight";
+document.getElementById("volumeLabel").innerHTML = "Volume";
+document.getElementById("sizeLabel").innerHTML = "Size";
+document.getElementById("costKilogramLabel").innerHTML = "Filament cost per kilogram";
+document.getElementById("costLabel").innerHTML = "Printing cost";
+document.getElementById("diameterLabel").innerHTML = "Filament diameter";
+document.getElementById("speedLabel").innerHTML = "Printing speed";
+document.getElementById("lengthLabel").innerHTML = "Filament length";
+document.getElementById("timeLabel").innerHTML = "Build time";
+document.getElementById("hoursLabel").innerHTML = "hours";
+document.getElementById("minutesLabel").innerHTML = "minutes";
 
 function init(file) {
     container = document.getElementById("container");
