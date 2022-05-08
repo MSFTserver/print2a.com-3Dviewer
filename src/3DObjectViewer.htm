@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>3D Object Viewer</title>
+		<link rel="stylesheet" type="text/css" href="3DObjectViewer.css">
+		<meta name="theme-color" content="#3f729b"/>
+		<meta name="viewport" content="width=380, initial-scale=1, maximum-scale=1"/>
+	</head>
+	<body>
+		<div id="loading" class="loading_splash">
+			<div class="loading_splash_container">
+				<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+			</div>
+		</div>
+		<div class="content">
+			<div id="container"></div>
+			<div id="container2">
+				<span id="densityLabel"></span>:&nbsp;<span id="densityValue"></span>&nbsp;g/cc&nbsp;<input type="submit" class="buttonChanger" onclick="moreDensity(true);" value="+"/>&nbsp;<input type="submit" class="buttonChanger" onclick="moreDensity(false);" value="-"/><br />
+				<span id="weightLabel"></span>:&nbsp;<span id="weightValue"></span>&nbsp;g<br />
+				<span id="volumeLabel"></span>:&nbsp;<span id="volumeValue"></span>&nbsp;cm3<br />
+				<span id="sizeLabel"></span>:&nbsp;<span id="widthValue"></span>&nbsp;x&nbsp;<span id="heightValue"></span>&nbsp;x&nbsp;<span id="depthValue"></span>&nbsp;cm<br />
+				<hr class="separator"/>
+				<span id="costKilogramLabel"></span>:&nbsp;$<span id="costKilogramValue"></span>&nbsp;<input type="submit" class="buttonChanger" onclick="moreCost(true);" value="+"/>&nbsp;<input type="submit" class="buttonChanger" onclick="moreCost(false);" value="-"/><br />
+				<span id="costLabel"></span>:&nbsp;$<span id="costValue"></span><br />
+				<hr class="separator"/>
+				<span id="diameterLabel"></span>:&nbsp;<span id="diameterValue"></span>&nbsp;mm&nbsp;<input type="submit" class="buttonChanger" onclick="moreDiameter(true);" value="+"/>&nbsp;<input type="submit" class="buttonChanger" onclick="moreDiameter(false);" value="-"/><br />
+				<span id="speedLabel"></span>:&nbsp;<span id="speedValue"></span>&nbsp;mm/s&nbsp;<input type="submit" class="buttonChanger" onclick="moreSpeed(true);" value="+"/>&nbsp;<input type="submit" class="buttonChanger" onclick="moreSpeed(false);" value="-"/><br />
+				<span id="lengthLabel"></span>:&nbsp;<span id="lengthValue"></span>&nbsp;mm<br />
+				<span id="timeLabel"></span>:&nbsp;<span id="hoursValue"></span>&nbsp;<span id="hoursLabel"></span>&nbsp;<span id="minutesValue"></span>&nbsp;<span id="minutesLabel"></span><br />
+			</div>
+			<div class="container3">
+				<div class="leftitem">
+					<input type="file" id="modelOBJ" onChange="runViewer();" disabled>
+				</div>
+			</div>
+		</div>
+		 <script src="three.js"></script>
+		 <script src="render.js"></script>
+	</body>
+</html>
