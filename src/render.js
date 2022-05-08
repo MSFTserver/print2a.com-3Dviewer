@@ -211,8 +211,8 @@ function init(file) {
         }
     }, false);
 
-    light = new THREE.HemisphereLight(0x97FF97, 0x3E683E, 0.6);
-    light.position.set(0, 0, 0);
+    light = new THREE.HemisphereLight(0xffffff, 0x000000, 1);
+    light.position.set(0, 1, 0);
     scene.add(light);
 
     renderer = new THREE.WebGLRenderer({ antialias: false });
