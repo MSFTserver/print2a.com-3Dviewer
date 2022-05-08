@@ -25,7 +25,7 @@ function init(file) {
     container = document.getElementById("container");
     container.innerHTML = "";
 
-    camera = new THREE.PerspectiveCamera(37.8, ((window.innerWidth-200) / (window.innerHeight-200)), 1, 100000);
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 100000);
 
     camera.position.z = 300;
     camera.position.y = -500;
@@ -99,7 +99,7 @@ function init(file) {
             geometry.computeVertexNormals();
             geometry.center();
 
-            var material = new THREE.MeshPhongMaterial({ color: 0x00FF00 });
+            var material = new THREE.MeshPhongMaterial({ color: 0x00FF00, emissive:0x000000, emissiveIntensity:2});
             mesh = new THREE.Mesh(geometry, material);
 
             // CALCULATING THE VOLUME
