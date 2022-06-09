@@ -61,6 +61,10 @@ function init(fileExt, fileData) {
         console.log("EXT: ",fileExt)
         alert(STRING_ERROR);
     }
+    
+    renderer = new THREE.WebGLRenderer({ antialias: false });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    
         try {
             let contents = fileData;
             console.log("LOAD: ",contents);
@@ -206,8 +210,6 @@ function init(fileExt, fileData) {
     light.position.set(0, 1, 0);
     scene.add(light);
 
-    renderer = new THREE.WebGLRenderer({ antialias: false });
-    renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
     requestAnimationFrame(animate);
@@ -358,10 +360,10 @@ window.onload = async function () {
     let fileName = filePath.split('/').pop();
     let fileExt = fileName.split('.').pop().toLowerCase();
     let data = await fetch(
-        `${print2aApiEndpoint}/GetFile?fileLocation=${filePath}`,
+        `${print2aApiEndpoint}/GetFile?fileLocation=print2a/${filePath}`,
     )
     console.log(data)
-    let fileData = await data.text()
+    let fileData = await data.arrayBuffer()
     console.log(fileData)
     init(fileExt, fileData);
 }
